@@ -141,14 +141,14 @@ int process_user_query_request(int acceptfd,MSG *msg)
 			resultp[index+ncolumn-10],resultp[index+ncolumn-9],resultp[index+ncolumn-8],\
 			resultp[index+ncolumn-7],resultp[index+ncolumn-6],resultp[index+ncolumn-5],\
 			resultp[index+ncolumn-4],resultp[index+ncolumn-3],resultp[index+ncolumn-2],\
-			resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+			resultp[index+ncolumn-1]);
 			
 			
 			sprintf(msg->recvmsg,"%s   %s   %s   %s   %s   %s   %s   %s   %s   %s   %s",resultp[index+ncolumn-11],\
 			resultp[index+ncolumn-10],resultp[index+ncolumn-9],resultp[index+ncolumn-8],\
 			resultp[index+ncolumn-7],resultp[index+ncolumn-6],resultp[index+ncolumn-5],\
 			resultp[index+ncolumn-4],resultp[index+ncolumn-3],resultp[index+ncolumn-2],\
-			resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+			resultp[index+ncolumn-1]);
 			send(acceptfd,msg,sizeof(MSG),0);
 			usleep(1000);
 			printf("=========================================\n");
@@ -318,14 +318,14 @@ int process_admin_query_request(int acceptfd,MSG *msg)
 			resultp[index+ncolumn-10],resultp[index+ncolumn-9],resultp[index+ncolumn-8],\
 			resultp[index+ncolumn-7],resultp[index+ncolumn-6],resultp[index+ncolumn-5],\
 			resultp[index+ncolumn-4],resultp[index+ncolumn-3],resultp[index+ncolumn-2],\
-			resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+			resultp[index+ncolumn-1]);
 			
 			
 			sprintf(msg->recvmsg,"%s   %s   %s   %s   %s   %s   %s   %s   %s   %s   %s",resultp[index+ncolumn-11],\
 			resultp[index+ncolumn-10],resultp[index+ncolumn-9],resultp[index+ncolumn-8],\
 			resultp[index+ncolumn-7],resultp[index+ncolumn-6],resultp[index+ncolumn-5],\
 			resultp[index+ncolumn-4],resultp[index+ncolumn-3],resultp[index+ncolumn-2],\
-			resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+			resultp[index+ncolumn-1]);
 			send(acceptfd,msg,sizeof(MSG),0);
 			usleep(1000);
 			printf("=========================================\n");
@@ -366,19 +366,16 @@ int process_admin_history_request(int acceptfd,MSG *msg)
 	}else{
 		for(i=0;i<ncolumn;i++)
 		{
-			printf("%-11s",resultp[i]);
+			printf("%-8s",resultp[i]);
 		}
 		putchar(10);
 		printf("=========================================\n");
 	
 		int index = ncolumn;
 		for(i=0;i<nrow;i++){
-			printf("%s	 %s   %s  ",resultp[index+ncolumn-2],\
-						resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+		printf("%s	 %s   %s \n ",resultp[index+ncolumn-3],	resultp[index+ncolumn-2],resultp[index+ncolumn-1]);
 						
-						
-		sprintf(msg->recvmsg,"%s   %s	%s	",resultp[index+ncolumn-2],\
-		resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+		sprintf(msg->recvmsg,"%s   %s	%s	",resultp[index+ncolumn-3],	resultp[index+ncolumn-2],resultp[index+ncolumn-1]);
 		send(acceptfd,msg,sizeof(MSG),0);
 		usleep(1000);
 		printf("=========================================\n");

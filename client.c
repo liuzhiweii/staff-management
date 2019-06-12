@@ -16,7 +16,6 @@
 
 void show_userinfo(MSG *msg)
 {
-	printf("*******************************\n");
 	printf("%s\n",msg->recvmsg);
 	return;
 
@@ -100,7 +99,7 @@ void do_admin_modification(int sockfd,MSG *msg)
 	msg->msgtype=ADMIN_MODIFY ;
 	memset(&msg->info,0,sizeof(staff_info_t));
 	send(sockfd,msg,sizeof(MSG),0);
-	recv(sockfd,msg,sizeof(MSG),0);
+//	recv(sockfd,msg,sizeof(MSG),0);
 	
 	printf("请输入您要修改的工人的工号：");
 	scanf("%d",&msg->info.no);
@@ -319,7 +318,7 @@ void do_admin_history (int sockfd,MSG *msg)
 		recv(sockfd,msg,sizeof(MSG),0);
 		if(strncmp(msg->recvmsg,"over",4)==0)
 			break;
-		printf("msg->recvmsg:%s",msg->recvmsg);
+		printf("msg->recvmsg:%s\n",msg->recvmsg);
 
 	}
 	printf("查询历史信息结束！\n");
