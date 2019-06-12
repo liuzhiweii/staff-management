@@ -377,12 +377,12 @@ int process_admin_history_request(int acceptfd,MSG *msg)
 						resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
 						
 						
-						sprintf(msg->recvmsg,"%s   %s	%s	",resultp[index+ncolumn-2],\
-						resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
-						send(acceptfd,msg,sizeof(MSG),0);
-						usleep(1000);
-						printf("=========================================\n");
-						index +=ncolumn;
+		sprintf(msg->recvmsg,"%s   %s	%s	",resultp[index+ncolumn-2],\
+		resultp[index+ncolumn-1],resultp[index+ncolumn-0]);
+		send(acceptfd,msg,sizeof(MSG),0);
+		usleep(1000);
+		printf("=========================================\n");
+		index +=ncolumn;
 
 
 			}
